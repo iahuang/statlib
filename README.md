@@ -19,7 +19,7 @@ A collection of useful computation functions for STA247 implemented in Python
 
 ### `dist_pois(l)`
 **Function signature**
-```
+```python
 def dist_pois(l: float) -> Callable[[int], float]
 ```
 Return a probability function `P` that returns the value of `P(X=k)`
@@ -29,7 +29,7 @@ where `X~Pois(l)`
 
 ### `dist_binom(n, p)`
 **Function signature**
-```
+```python
 def dist_binom(n: int, p: float) -> Callable[[int], float]
 ```
 Return a probability function `P` that returns the value of `P(X=k)`
@@ -39,7 +39,7 @@ where `X~Binom(n, p)`
 
 ### `dist_geom(p)`
 **Function signature**
-```
+```python
 def dist_geom(p: float) -> Callable[[int], float]
 ```
 Return a probability function `P` that returns the value of `P(X=k)`
@@ -49,7 +49,7 @@ where `X~Geom(p)`
 
 ### `dist_nb(r, p)`
 **Function signature**
-```
+```python
 def dist_nb(r: int, p: float) -> Callable[[int], float]
 ```
 Return a probability function `P` that returns the value of `P(X=k)`
@@ -66,7 +66,7 @@ of success.
 
 ### `dist_hypergeom(r, N, n)`
 **Function signature**
-```
+```python
 def dist_hypergeom(r: int, N: int, n: int) -> Callable[[int], float]
 ```
 Return a probability function `P` that returns the value of `P(X=k)`
@@ -84,7 +84,7 @@ where `N` is the population size, `r` is the number of successes in the populati
 
 ### `approx_integral(f, a, b)`
 **Function signature**
-```
+```python
 def approx_integral(f: Callable[[float], float], a: float, b: float, res=1000) -> float
 ```
 Approximate the value of the integral of `f(x)` with respect to `x`, evaluated
@@ -94,7 +94,7 @@ from `a` to `b`, where `dx` is approximated as `(b-a)/res`.
 
 ### `expected_val_continuous(pdf, g)`
 **Function signature**
-```
+```python
 def expected_val_continuous(pdf: Callable[[float], float], g: Optional[Callable[[float], float]], inf=20, dx=0.01) -> float
 ```
 Approximate the expected value of a continuous random variable with provided
@@ -106,7 +106,7 @@ Optionally, compute the expected value of g(X)
 
 ### `variance_continuous(pdf)`
 **Function signature**
-```
+```python
 def variance_continuous(pdf: Callable[[float], float], inf=20, dx=0.01) -> float
 ```
 Approximate the variance of a continuous random variable with provided
@@ -117,7 +117,7 @@ approximating the expected value.
 
 ### `Gamma(z)`
 **Function signature**
-```
+```python
 def Gamma(z: float) -> float
 ```
 Approximate the value of `G(z)`, where `G` is the gamma function.
@@ -132,7 +132,7 @@ J Inequal Appl. 2018;2018(1):56. doi:10.1186/s13660-018-1646-6
 
 ### `dist_exp(l)`
 **Function signature**
-```
+```python
 def dist_exp(l: float) -> Callable[[float], float]
 ```
 Return the probability density function of a random variable X
@@ -142,7 +142,7 @@ described by an exponential distribution with parameter `l`
 
 ### `dist_gamma(alpha, beta)`
 **Function signature**
-```
+```python
 def dist_gamma(alpha: float, beta: float) -> Callable[[float], float]
 ```
 Return the probability density function of a random variable X

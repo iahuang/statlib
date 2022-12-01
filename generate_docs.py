@@ -24,8 +24,12 @@ for node in root.body:
         tldr.append(" - " + func_brief)
 
         out.append("**Function signature**")
-        out.append("```")
-        out.append(lines[node.lineno - 1].strip()[:-1])
+        out.append("```python")
+    
+        end = node.lineno
+        if node.returns: end = node.returns.lineno
+        out.append("".join(k.strip() for k in lines[node.lineno - 1:end]).strip()[:-1])
+
         out.append("```")
 
         doc_comment: ast.Expr = node.body[0]  # type: ignore
