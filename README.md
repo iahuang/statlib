@@ -41,7 +41,7 @@ where `N` is the population size, `r` is the number of successes in the populati
 Approximate the value of the integral of `f(x)` with respect to `x`, evaluated
 from `a` to `b`, where `dx` is approximated as `(b-a)/res`.
 
-### `expected_val_continuous(pdf: Callable[[float], float], g: Optional[Callable[[float], float]], inf=20, dx=0.01) -> float```
+### `expected_val_continuous(pdf: Callable[[float], float], g: Optional[Callable[[float], float]], inf=20, dx=0.01) -> float`
 Approximate the expected value of a continuous random variable with provided
 probability density function `pdf` by integrating from `-inf` to `inf`.
 
