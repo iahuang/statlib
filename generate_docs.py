@@ -11,7 +11,7 @@ for node in root.body:
     if isinstance(node, ast.FunctionDef):
         out.append("### `{}({})`".format(node.name, ", ".join(arg.arg for arg in node.args.args)))
         
-        out.append("**Function signature:**")
+        out.append("**Function signature**")
         out.append("```")
         out.append(lines[node.lineno-1].strip()[:-1])
         out.append("```")
@@ -19,5 +19,7 @@ for node in root.body:
         doc_comment: ast.Expr = node.body[0]  # type: ignore
 
         if isinstance(doc_comment.value, ast.Str):
-            out.append(doc_comment.value.value)
+            comment = doc_comment.value.value.strip()
+            for line in comment.split("\n"):
+                out.append(line.strip())
 print("\n".join(out))
