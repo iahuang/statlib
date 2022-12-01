@@ -114,6 +114,8 @@ def expected_val_continuous(
     """
     Approximate the expected value of a continuous random variable with provided
     probability density function `pdf` by integrating from `-inf` to `inf`.
+
+    Optionally, compute the expected value of g(X)
     """
 
     res = round(2 * inf / dx)
