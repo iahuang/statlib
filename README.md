@@ -3,7 +3,20 @@
 A collection of useful computation functions for STA247 implemented in Python
 
 ## Included Functions
+ - `dist_pois(l)`
+ - `dist_binom(n, p)`
+ - `dist_geom(p)`
+ - `dist_nb(r, p)`
+ - `dist_hypergeom(r, N, n)`
+ - `approx_integral(f, a, b)`
+ - `expected_val_continuous(pdf, g)`
+ - `variance_continuous(pdf)`
+ - `Gamma(z)`
+ - `dist_exp(l)`
+ - `dist_gamma(alpha, beta)`
+
 ---
+
 ### `dist_pois(l)`
 **Function signature**
 ```
@@ -11,7 +24,9 @@ def dist_pois(l: float) -> Callable[[int], float]
 ```
 Return a probability function `P` that returns the value of `P(X=k)`
 where `X~Pois(l)`
+
 ---
+
 ### `dist_binom(n, p)`
 **Function signature**
 ```
@@ -19,7 +34,9 @@ def dist_binom(n: int, p: float) -> Callable[[int], float]
 ```
 Return a probability function `P` that returns the value of `P(X=k)`
 where `X~Binom(n, p)`
+
 ---
+
 ### `dist_geom(p)`
 **Function signature**
 ```
@@ -27,7 +44,9 @@ def dist_geom(p: float) -> Callable[[int], float]
 ```
 Return a probability function `P` that returns the value of `P(X=k)`
 where `X~Geom(p)`
+
 ---
+
 ### `dist_nb(r, p)`
 **Function signature**
 ```
@@ -42,7 +61,9 @@ P(X=k)=\binom{k-1}{r-1}p^r(1-p)^{k-r}
 ```
 i.e. `k` represents the number of trials before the `r`th success, with a probability `p`
 of success.
+
 ---
+
 ### `dist_hypergeom(r, N, n)`
 **Function signature**
 ```
@@ -58,26 +79,32 @@ P(X=k)=\frac{]inom{r}{k}\binom{N-r}{n-k}}{\binom{N}{n}}
 
 where `N` is the population size, `r` is the number of successes in the population,
 `n` is the sample size, and `k` is the number of sample successes.
+
 ---
-### `approx_integral(f, a, b, res)`
+
+### `approx_integral(f, a, b)`
 **Function signature**
 ```
 def approx_integral(f: Callable[[float], float], a: float, b: float, res=1000) -> float
 ```
 Approximate the value of the integral of `f(x)` with respect to `x`, evaluated
 from `a` to `b`, where `dx` is approximated as `(b-a)/res`.
+
 ---
-### `expected_val_continuous(pdf, g, inf, dx)`
+
+### `expected_val_continuous(pdf, g)`
 **Function signature**
 ```
-def expected_val_continuous
+def expected_val_continuous(pdf: Callable[[float], float], g: Optional[Callable[[float], float]], inf=20, dx=0.01) -> float
 ```
 Approximate the expected value of a continuous random variable with provided
 probability density function `pdf` by integrating from `-inf` to `inf`.
 
 Optionally, compute the expected value of g(X)
+
 ---
-### `variance_continuous(pdf, inf, dx)`
+
+### `variance_continuous(pdf)`
 **Function signature**
 ```
 def variance_continuous(pdf: Callable[[float], float], inf=20, dx=0.01) -> float
@@ -85,7 +112,9 @@ def variance_continuous(pdf: Callable[[float], float], inf=20, dx=0.01) -> float
 Approximate the variance of a continuous random variable with provided
 probability density function `pdf` by integrating from `-inf` to `inf` to
 approximating the expected value.
+
 ---
+
 ### `Gamma(z)`
 **Function signature**
 ```
@@ -98,7 +127,9 @@ Algorithm from:
 Yang ZH, Tian JF. An accurate approximation formula for gamma function.
 J Inequal Appl. 2018;2018(1):56. doi:10.1186/s13660-018-1646-6
 ```
+
 ---
+
 ### `dist_exp(l)`
 **Function signature**
 ```
@@ -106,7 +137,9 @@ def dist_exp(l: float) -> Callable[[float], float]
 ```
 Return the probability density function of a random variable X
 described by an exponential distribution with parameter `l`
+
 ---
+
 ### `dist_gamma(alpha, beta)`
 **Function signature**
 ```

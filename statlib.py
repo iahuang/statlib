@@ -132,7 +132,7 @@ def variance_continuous(pdf: Callable[[float], float], inf=20, dx=0.01) -> float
     probability density function `pdf` by integrating from `-inf` to `inf` to
     approximating the expected value.
     """
-    
+
     mu = expected_val_continuous(pdf, None, inf, dx)
     return expected_val_continuous(pdf, lambda x: x * x, inf, dx) - mu * mu
 
